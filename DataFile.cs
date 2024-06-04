@@ -39,16 +39,13 @@ namespace Files_Queue_Program
                 return false;
             }
 
-            int i = 0;
-            char FileN = fName[i]; // saving to an assist variable each char by each loop, for the comparison 
-            while (i < fName.Length)
+            foreach (char c in fName)
             {
-                if (FileN == '<' || FileN == '?' || FileN == '*' || FileN == ':' || FileN == '/' || FileN == '\\' || FileN == '|' || FileN == '>')
+                if (c == '<' || c == '?' || c == '*' || c == ':' || c == '/' || c == '\\' || c == '|' || c == '>')
                 {
                     Console.WriteLine("Error! A file name can't contain any of the following characters:\\ / : * ? \" < > | ");
                     return false;   // going out from the method + indication for failure
                 }
-                i++;                // advance to next char in the string
             }                       // when finished checking the whole word and came out from the "while" loop, it means this is a proper file name
 
             fileName = fName;        // assign the checked file name
